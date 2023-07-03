@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <style>
+    @keyframes neon-glow {
+      0% {
+        text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #fff, 0 0 40px #ff00de, 0 0 70px #ff00de, 0 0 80px #ff00de, 0 0 100px #ff00de, 0 0 150px #ff00de;
+      }
+      30% {
+        text-shadow: none;
+      }
+      60% {
+        text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #fff, 0 0 40px #ff00de, 0 0 70px #ff00de, 0 0 80px #ff00de, 0 0 100px #ff00de, 0 0 150px #ff00de;
+      }
+      100% {
+        text-shadow: none;
+      }
+    }
+
+    body {
+      margin: 0;
+      padding: 0;
+      background-color: black;
+      transition: background-image 0.5s ease-in-out;
+    }
+
+    .neon-text {
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      font-family: Comic Sans MS;
+      font-size: 50px;
+      color: #fff;
+      animation: neon-glow 5s linear infinite;
+      z-index: 1;
+    }
+
+    .image {
+      position:relative;
+      height:90vh;
+      background-position: center;
+      background-repeat: no-repeat;
+      
+      animation: image-animation 10s linear infinite;
+    }
+
+    .image1 {
+      background-image: url("image6.jpg");
+    }
+
+    .image2 {
+      background-image: url("image1.jpg");
+    }
+
+    .image3 {
+      background-image: url("image2.jpg");
+    }
+
+    .image4 {
+      background-image: url("image3.jpg");
+    }
+
+    .image5 {
+      background-image: url("image4.jpg");
+    }
+
+    .image6 {
+      background-image: url("image5.jpg");
+    }
+
+    @keyframes image-animation {
+      0% {
+        opacity: 0;
+        transform: scale(0.8);
+      }
+      20% {
+        opacity: 1;
+        transform: scale(1.1);
+      }
+      80% {
+        opacity: 1;
+        transform: scale(1.1);
+      }
+      100% {
+        opacity: 0;
+        transform: scale(0.8);
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="neon-text">Happy Birthday タンポポ</div>
+  <div class="image image1"></div>
+  <div class="image image2"></div>
+  <div class="image image3"></div>
+  <div class="image image4"></div>
+  <div class="image image5"></div>
+  <div class="image image6"></div>
+
+  <script>
+    window.addEventListener('scroll', function() {
+      const scrollPosition = window.pageYOffset || document.documentElement.scrollTop;
+      const windowHeight = window.innerHeight;
+      const images = document.querySelectorAll('.image');
+      const texts = ['Thank you for being a constant source of love and support いつも愛と支えになってくれてありがとう。.'  , 'I am grateful for the memories we have created together 一緒に作り上げた思い出に感謝している', 'You have a heart of gold, and I am lucky to have you. あなたはとても親切で、私はあなたがいて幸運だった。。', 'Thank you for being a good friend to me 良き友人でいてくれてありがとう', 'Happy Birthday Tanpopo たんぽぽ誕生日おめでとう'];
+
+      for (let i = 0; i < images.length; i++) {
+        const image = images[i];
+        const text = texts[i];
+
+        if (scrollPosition >= windowHeight * i && scrollPosition < windowHeight * (i + 1)) {
+          document.body.style.backgroundImage = `url(image${i + 1}.jpg)`;
+          document.querySelector('.neon-text').textContent = text;
+        }
+      }
+    });
+
+    window.addEventListener('resize', function() {
+      const images = document.querySelectorAll('.image');
+      for (let i = 0; i < images.length; i++) {
+        const image = images[i];
+        image.style.height = window.innerHeight + 'px';
+      }
+    });
+  </script>
+</body>
+</html>

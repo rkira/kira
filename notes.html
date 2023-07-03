@@ -6,17 +6,26 @@
 </head>
 <body>
     <div class="header">
-        <h1 class="title">BCA Notes</h1>
-    </div >
+        <h1 class="title">IPU Eze(BCA)</h1>
+    </div>
+    <div class="menu-icon" onclick="toggleDialogue()">
+        <div></div>
+    </div>
+    <div class="dialogue" id="dialogue">
+        <div class="dialogue-row" onclick="openPage('notes.html')">IPU BCA Notes</div>
+        <div class="dialogue-row" onclick="openPage('page1.html')">Games</div>
+        <div class="dialogue-row" onclick="openPage('page1.html')">To Be added Soon</div>
+        <div class="dialogue-row" onclick="openPage('page1.html')">To Be Added Soon</div>
+        <div class="dialogue-row" onclick="openPage('about.html')">About</div>
+    </div>
     <div style="color: aliceblue; margin: 0 auto; text-align: center;">
         <a href="BCA SYLLABUS_NEW.pdf"><h3>Click to view/download the whole IPU syllabus for BCA</h3></a>
     </div>
-    <p>Here lies an invis<span style="display:none">x</span>ible sentence.</p>
-    
+
     <div class="main-content">
         <div style="color: aliceblue;">
             <h1>Select your Semester and Subject to Get Study Material</h1>
-            </div>
+        </div>
         <button id="showOptionsButton" class="option" onclick="showOptions()">Select Semester</button>
         <div id="optionsContainer" class="options-container"></div>
     </div>
